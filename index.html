@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,54 +8,58 @@
     <style>
         /* Paleta de Colores CHG Ascensores */
         :root {
-            --chg-blue: #164584;       /* Azul del logo */
-            --chg-red: #B21E27;        /* Rojo de 'ASCENSORES' */
-            --chg-light-blue: #DCE4ED; /* Celeste de la marca de agua */
+            --chg-blue: #164584;
+            /* Azul del logo */
+            --chg-red: #B21E27;
+            /* Rojo de 'ASCENSORES' */
+            --chg-light-blue: #DCE4ED;
+            /* Celeste de la marca de agua */
             --chg-text-dark: #2c3e50;
             --chg-bg-card: #ffffff;
             --chg-gray: #7f8c8d;
         }
 
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--chg-light-blue); 
-            color: var(--chg-text-dark); 
-            margin: 0; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            overflow-x: hidden; /* Evita horizontal en móviles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--chg-light-blue);
+            color: var(--chg-text-dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            /* Evita horizontal en móviles */
         }
 
-        .card { 
-            background: var(--chg-bg-card); 
-            padding: 30px; 
-            border-radius: 8px; 
-            box-shadow: 0 8px 20px rgba(22, 69, 132, 0.1); 
-            width: 100%; 
-            max-width: 700px; 
-            margin-bottom: 20px; 
-            border-top: 5px solid var(--chg-blue); 
+        .card {
+            background: var(--chg-bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(22, 69, 132, 0.1);
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 20px;
+            border-top: 5px solid var(--chg-blue);
             box-sizing: border-box;
         }
 
-        h2 { 
-            color: var(--chg-blue); 
-            margin-top: 0; 
+        h2 {
+            color: var(--chg-blue);
+            margin-top: 0;
             border-bottom: 2px solid var(--chg-light-blue);
             padding-bottom: 10px;
         }
 
-        .btn { 
-            padding: 12px 24px; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-size: 16px; 
-            font-weight: bold; 
-            transition: all 0.3s ease; 
-            width: 100%; 
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
             box-sizing: border-box;
         }
 
@@ -63,55 +68,89 @@
             color: white;
             box-shadow: 0 4px 6px rgba(22, 69, 132, 0.2);
         }
-        .btn-blue:hover { background-color: #10366b; }
 
-        .btn-record { 
-            background-color: var(--chg-red); 
-            color: white; 
-            margin-bottom: 15px; 
+        .btn-blue:hover {
+            background-color: #10366b;
+        }
+
+        .btn-record {
+            background-color: var(--chg-red);
+            color: white;
+            margin-bottom: 15px;
             box-shadow: 0 4px 6px rgba(178, 30, 39, 0.2);
         }
-        .btn-record:hover { background-color: #921720; }
-        .btn-record.recording { 
-            background-color: #e74c3c; 
-            animation: pulse 1.5s infinite; 
+
+        .btn-record:hover {
+            background-color: #921720;
         }
 
-        .btn-submit { 
-            background-color: var(--chg-blue); 
-            color: white; 
-            margin-top: 15px; 
+        .btn-record.recording {
+            background-color: #e74c3c;
+            animation: pulse 1.5s infinite;
+        }
+
+        .btn-submit {
+            background-color: var(--chg-blue);
+            color: white;
+            margin-top: 15px;
             box-shadow: 0 4px 6px rgba(22, 69, 132, 0.2);
         }
-        .btn-submit:hover { background-color: #10366b; }
 
-        .btn-secondary { 
-            background-color: transparent; 
-            color: var(--chg-blue); 
+        .btn-submit:hover {
+            background-color: #10366b;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--chg-blue);
             border: 2px solid var(--chg-blue);
-            margin-bottom: 15px; 
+            margin-bottom: 15px;
         }
-        .btn-secondary:hover { background-color: var(--chg-light-blue); }
-        
-        .form-group { margin-bottom: 20px; }
-        .form-label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--chg-blue); text-transform: capitalize; }
-        .form-description { display: block; font-size: 12px; color: #666; margin-bottom: 8px; font-style: italic; }
-        
-        .form-control { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #bdc3c7; 
-            border-radius: 5px; 
-            box-sizing: border-box; 
-            font-family: inherit; 
+
+        .btn-secondary:hover {
+            background-color: var(--chg-light-blue);
         }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--chg-blue);
+            text-transform: capitalize;
+        }
+
+        .form-description {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
         .form-control:focus {
             outline: none;
             border-color: var(--chg-blue);
             box-shadow: 0 0 5px rgba(22, 69, 132, 0.2);
         }
-        textarea.form-control { resize: vertical; min-height: 80px; }
-        
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
         /* Sistema de Tarjetas de Tareas */
         .tasks-grid {
             display: flex;
@@ -119,6 +158,7 @@
             gap: 15px;
             margin-top: 20px;
         }
+
         .task-card {
             background: #f8fafc;
             border: 1px solid #cbd5e1;
@@ -129,127 +169,361 @@
             flex-direction: column;
             gap: 10px;
         }
-        .task-title { font-weight: bold; font-size: 18px; color: var(--chg-blue); }
-        .task-meta { font-size: 14px; color: var(--chg-text-dark); }
 
-        .photo-upload-zone { 
-            background: #f8fafc; 
-            padding: 20px; 
-            border-radius: 8px; 
-            margin-top: 20px; 
-            border: 2px dashed #9fb3c8; 
+        .task-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--chg-blue);
         }
-        .preview-container { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-        
-        .photo-card { 
-            display: flex; 
-            gap: 15px; 
-            align-items: center; 
-            background: white; 
-            padding: 10px; 
-            border-radius: 8px; 
-            border: 1px solid var(--chg-light-blue); 
-            position: relative; 
-        }
-        .photo-thumb { width: 80px; height: 80px; object-fit: cover; border-radius: 5px; border: 1px solid #ddd; }
-        .photo-desc {
-            flex-grow: 1; padding: 10px; border: 1px solid #bdc3c7; border-radius: 5px;
-            font-family: inherit; font-size: inherit; line-height: 1.4;
-            resize: none; overflow: hidden; min-height: 42px; box-sizing: border-box;
-        }
-        .photo-desc:focus { outline: none; border-color: var(--chg-blue); box-shadow: 0 0 5px rgba(22, 69, 132, 0.2); }
 
-        /* Bloque de descripción con grabación de voz por foto */
-        .desc-block { flex-grow: 1; display: flex; flex-direction: column; gap: 8px; }
-        .desc-controls { display: flex; gap: 8px; align-items: center; }
-        .btn-mic-foto {
-            background-color: var(--chg-red); color: white; border: none; border-radius: 5px;
-            padding: 8px 12px; cursor: pointer; font-size: 14px; font-weight: bold;
-            white-space: nowrap; transition: background-color 0.2s;
+        .task-meta {
+            font-size: 14px;
+            color: var(--chg-text-dark);
         }
-        .btn-mic-foto:hover { background-color: #921720; }
-        .btn-mic-foto.recording { background-color: #e74c3c; animation: pulse 1.5s infinite; }
-        .btn-mic-foto:disabled { background-color: #bdc3c7; cursor: not-allowed; animation: none; }
-        .btn-pause-foto {
-            background-color: transparent; color: var(--chg-blue); border: 2px solid var(--chg-blue);
-            border-radius: 5px; padding: 6px 12px; cursor: pointer; font-size: 14px; font-weight: bold;
+
+        /* Bloques de Equipo (repetibles) */
+        .equipo-card {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid var(--chg-blue);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .equipo-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--chg-light-blue);
+        }
+
+        .btn-remove-equipo {
+            background: var(--chg-red);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
             white-space: nowrap;
         }
-        .desc-status { font-size: 12px; font-weight: bold; color: var(--chg-gray); }
-        
-        .btn-remove { 
-            background: var(--chg-red); 
-            color: white; 
-            border: none; 
-            border-radius: 50%; 
-            width: 26px; 
-            height: 26px; 
-            cursor: pointer; 
-            position: absolute; 
-            top: -10px; 
-            right: -10px; 
-            font-weight: bold; 
+
+        .btn-remove-equipo:hover {
+            background: #921720;
+        }
+
+        /* Lista de Cotizaciones */
+        .cotizacion-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cotizacion-row .form-control {
+            flex-grow: 1;
+        }
+
+        .btn-remove-cot {
+            background: var(--chg-red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-remove-cot:hover {
+            background: #921720;
+        }
+
+        .photo-upload-zone {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 2px dashed #9fb3c8;
+        }
+
+        .preview-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .photo-card {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--chg-light-blue);
+            position: relative;
+        }
+
+        .photo-thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .photo-desc {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: 1.4;
+            resize: none;
+            overflow: hidden;
+            min-height: 42px;
+            box-sizing: border-box;
+        }
+
+        .photo-desc:focus {
+            outline: none;
+            border-color: var(--chg-blue);
+            box-shadow: 0 0 5px rgba(22, 69, 132, 0.2);
+        }
+
+        /* Bloque de descripción con grabación de voz por foto */
+        .desc-block {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .desc-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn-mic-foto {
+            background-color: var(--chg-red);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+        }
+
+        .btn-mic-foto:hover {
+            background-color: #921720;
+        }
+
+        .btn-mic-foto.recording {
+            background-color: #e74c3c;
+            animation: pulse 1.5s infinite;
+        }
+
+        .btn-mic-foto:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            animation: none;
+        }
+
+        .btn-pause-foto {
+            background-color: transparent;
+            color: var(--chg-blue);
+            border: 2px solid var(--chg-blue);
+            border-radius: 5px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .desc-status {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--chg-gray);
+        }
+
+        .btn-remove {
+            background: var(--chg-red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-weight: bold;
             z-index: 2;
         }
 
-        .btn-draw { 
-            background: var(--chg-blue); 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
-            width: 35px; 
-            height: 35px; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 18px; 
+        .btn-draw {
+            background: var(--chg-blue);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
             z-index: 1;
         }
-        
-        .status { margin-top: 10px; font-size: 14px; color: #666; text-align: center; font-weight: bold; }
-        .hidden { display: none !important; }
-        
-        @keyframes pulse { 
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); } 
-            50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } 
+
+        .status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+            }
+
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+            }
         }
 
         /* --- Estilos del Modal de Dibujo --- */
         .modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85); z-index: 9999;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 15px; box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
         }
-        .modal-content {
-            background: #fff; border-radius: 8px; width: 100%; max-width: 500px;
-            padding: 15px; display: flex; flex-direction: column; align-items: center;
-        }
-        
-        .toolbar {
-            display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; width: 100%;
-        }
-        .tool-btn {
-            padding: 8px 12px; background: white; color: #2c3e50; border: 2px solid #bdc3c7; border-radius: 5px; 
-            font-size: 14px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 5px;
-        }
-        .tool-btn.active { background: #164584; color: white; border-color: #164584; }
-        #btnDeshacer { background: #f39c12; color: white; border-color: #e67e22; }
-        #btnDeshacer:hover { background: #e67e22; }
-        #btnDeshacer:disabled { background: #bdc3c7; border-color: #95a5a6; cursor: not-allowed; }
 
-        #canvas-container { 
-            width: 100%; margin: 10px 0; border: 2px dashed #bdc3c7; 
-            background: #fff; overflow: hidden; padding: 0; position: relative;
+        .modal-content {
+            background: #fff;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        canvas { 
-            width: 100%; height: auto; touch-action: none; 
-            cursor: crosshair; display: block; margin: 0;
+
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            width: 100%;
         }
-        #canvasPreview { position: absolute; top: 0; left: 0; background: transparent; pointer-events: none; }
-        .modal-controls { display: flex; gap: 10px; width: 100%; margin-top: 10px; }
+
+        .tool-btn {
+            padding: 8px 12px;
+            background: white;
+            color: #2c3e50;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tool-btn.active {
+            background: #164584;
+            color: white;
+            border-color: #164584;
+        }
+
+        #btnDeshacer {
+            background: #f39c12;
+            color: white;
+            border-color: #e67e22;
+        }
+
+        #btnDeshacer:hover {
+            background: #e67e22;
+        }
+
+        #btnDeshacer:disabled {
+            background: #bdc3c7;
+            border-color: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        #canvas-container {
+            width: 100%;
+            margin: 10px 0;
+            border: 2px dashed #bdc3c7;
+            background: #fff;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+        }
+
+        canvas {
+            width: 100%;
+            height: auto;
+            touch-action: none;
+            cursor: crosshair;
+            display: block;
+            margin: 0;
+        }
+
+        #canvasPreview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        .modal-controls {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
 
         /* --- Ajustes para teléfonos móviles --- */
         @media (max-width: 600px) {
@@ -257,40 +531,48 @@
                 flex-direction: column;
                 align-items: stretch;
             }
+
             .photo-thumb {
                 width: 100%;
                 height: 180px;
                 object-fit: cover;
             }
+
             .photo-desc {
                 width: 100%;
                 box-sizing: border-box;
             }
+
             .desc-block {
                 width: 100%;
             }
+
             .desc-controls {
                 flex-wrap: wrap;
             }
+
             .btn-mic-foto,
             .btn-pause-foto {
                 flex: 1 1 auto;
                 text-align: center;
             }
+
             .desc-status {
                 flex-basis: 100%;
                 text-align: center;
                 margin-top: 4px;
             }
+
             .btn-draw {
-                position: absolute; 
-                top: 10px; 
-                left: 10px; 
-                box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="card" id="view-login">
@@ -312,11 +594,12 @@
         <h2>Tareas Pendientes</h2>
         <p id="welcome-message">Bienvenido,</p>
         <div class="tasks-grid" id="tasksContainer">
-            </div>
+        </div>
     </div>
 
     <div class="card hidden" id="step1">
-        <button class="btn btn-secondary" style="margin-bottom: 20px; width: auto;" onclick="irAtras()"> ⬅  Regresar a Tareas</button>
+        <button class="btn btn-secondary" style="margin-bottom: 20px; width: auto;" onclick="irAtras()"> ⬅ Regresar a
+            Tareas</button>
         <h2>Reporte Técnico Automático</h2>
         <p>Presione el botón para comenzar a grabar los hallazgos mecánicos del ascensor seleccionado.</p>
         <div style="display: flex; gap: 10px; margin-bottom: 15px;">
@@ -327,19 +610,23 @@
     </div>
 
     <div class="card hidden" id="step2">
-        <button class="btn btn-secondary" style="margin-bottom: 20px; width: auto;" onclick="irAtras()"> ⬅  Regresar a Tareas</button>
+        <button class="btn btn-secondary" style="margin-bottom: 20px; width: auto;" onclick="irAtras()"> ⬅ Regresar a
+            Tareas</button>
         <h2>Validación de Datos del Informe</h2>
-        <p>Revise la información estructurada por la IA, corrija parámetros numéricos y adjunte fotos del estado actual.</p>
-        
+        <p>Revise la información estructurada por la IA, corrija parámetros numéricos y adjunte fotos del estado actual.
+        </p>
+
         <div id="dynamicFormContainer"></div>
 
         <div class="photo-upload-zone">
             <label class="form-label">📸 Evidencias Fotográficas</label>
-            <span class="form-description">Suba capturas del motor, cabina o cableado defectuoso. Pulse el icono 🖌️ para marcar fallas en la foto.</span>
-            
+            <span class="form-description">Suba capturas del motor, cabina o cableado defectuoso. Pulse el icono 🖌️
+                para marcar fallas en la foto.</span>
+
             <input type="file" id="fotosEvidencia" class="hidden" accept="image/*" multiple>
-            <button type="button" id="btnAddPhoto" class="btn btn-secondary" style="margin-top: 10px;">➕ Elegir Fotos</button>
-            
+            <button type="button" id="btnAddPhoto" class="btn btn-secondary" style="margin-top: 10px;">➕ Elegir
+                Fotos</button>
+
             <div id="photoPreviews" class="preview-container"></div>
         </div>
 
@@ -350,7 +637,7 @@
     <div id="drawModal" class="modal hidden">
         <div class="modal-content">
             <h3 style="margin-top:0; color: var(--chg-blue);">Editor Fotográfico</h3>
-            
+
             <div class="toolbar">
                 <button class="tool-btn active" data-tool="freehand">✍️ Libre</button>
                 <button class="tool-btn" data-tool="rect">⬜ Rect</button>
@@ -363,22 +650,23 @@
                 <canvas id="miPizarra" width="300" height="300"></canvas>
                 <canvas id="canvasPreview" width="300" height="300"></canvas>
             </div>
-            
+
             <div class="modal-controls">
                 <button id="btnLimpiarCanvas" class="btn btn-red" style="flex: 1; margin:0;">Borrar Todo</button>
                 <button id="btnGuardarCanvas" class="btn btn-blue" style="flex: 2; margin:0;">Guardar Edición</button>
             </div>
-            <button id="btnCerrarModal" class="btn btn-secondary" style="margin-top: 15px; width: auto; align-self: center;">Cancelar</button>
+            <button id="btnCerrarModal" class="btn btn-secondary"
+                style="margin-top: 15px; width: auto; align-self: center;">Cancelar</button>
         </div>
     </div>
 
     <script>
         // El nuevo webhook que maneja autenticación + retorno de tareas pendientes juntas
-        const WEBHOOK_PORTAL = "https://chg-n8n.yitx9g.easypanel.host/webhook/autenticar-ingeniero";
-        
+        const WEBHOOK_PORTAL = "https://chg-n8n.yitx9g.easypanel.host/webhook/create-task";
+
         // Tus otros webhooks existentes para procesamiento secuencial
-        const WEBHOOK_AUDIO_A_JSON = "https://chg-n8n.yitx9g.easypanel.host/webhook/79e9b9f1-ef13-477f-92af-e8205248d990"; 
-        const WEBHOOK_JSON_A_PDF = "https://chg-n8n.yitx9g.easypanel.host/webhook/52f40c29-309c-4bac-96f9-a062fe1d450f";
+        const WEBHOOK_AUDIO_A_JSON = "https://chg-n8n.yitx9g.easypanel.host/webhook/79e9b9f1-ef13-477f-92af-e8205248d990";
+        const WEBHOOK_JSON_A_PDF = "https://chg-n8n.yitx9g.easypanel.host/webhook/create-report";
 
         // Webhooks para borradores de formulario (Supabase vía n8n)
         const WEBHOOK_GUARDAR_BORRADOR = "https://chg-n8n.yitx9g.easypanel.host/webhook/guardar-borrador";
@@ -388,20 +676,33 @@
         // Webhook que transcribe el audio de la descripción de una foto y devuelve TEXTO PLANO
         const WEBHOOK_AUDIO_DESCRIPCION = "https://chg-n8n.yitx9g.easypanel.host/webhook/crear-descripcion-foto";
 
-        const descripciones = {
-            "tipo_equipo": "Clasificación del equipo (Ascensor / Montacargas / Plataforma).",
-            "cantidad_equipos": "Cantidad de ascensores (u otros) revisados.",
-            "modelo": "Marca o modelo del ascensor.",
-            "numero_embarques": "Cantidad de accesos o puertas por cabina.",
-            "tipo": "Mecanismo de operation (Tracción / Hidráulico).",
-            "numero_paradas": "Número de paradas que realiza el equipo.",
-            "max_personas": "Número máximo de personas.",
-            "max_peso": "Número máximo del peso en Kg.",
-            "estado_general": "Condición actual (Adecuado / Regular / Deficiente / Crítico).",
-            "hallazgos_principales": "Características a reparar o anomalías encontradas.",
-            "tipo_propuesta": "Acción a cotizar o realizar (Mantenimiento / Correctivo / Modernización).",
-            "trabajos_recomendados": "Recomendaciones específicas de los trabajos a realizar.",
-            "resultado": "Conclusiones finales a partir de todo lo antes mencionado."
+        // Campos del bloque de EQUIPO (repetible). El orden aquí define el orden en el formulario.
+        const CAMPOS_EQUIPO = {
+            "tipo_equipo": "Clasificación del equipo (Ascensor / Montacargas / Plataforma)",
+            "cantidad_equipos": "Cantidad de ascensores (u otros) revisados",
+            "modelo": "Marca o modelo del ascensor",
+            "numero_paradas": "Número de paradas que realiza el equipo",
+            "tipo": "Mecanismo de operación (Tracción / Hidráulico)",
+            "numero_embarques": "Cantidad de accesos o puertas por cabina (ej. 1 embarque si se entra y sale por la misma puerta, 2 embarques si tiene puertas opuestas)",
+            "max_personas": "Número máximo de personas",
+            "max_peso": "Número máximo del peso en Kg"
+        };
+
+        // Campos GENERALES del informe (únicos, no se repiten por equipo).
+        const CAMPOS_GENERALES = {
+            "estado_general": "Condición actual (Adecuado / Regular / Deficiente / Crítico)",
+            "tipo_propuesta": "Acción a cotizar o realizar (Mantenimiento / Correctivo / Modernización)",
+            "hallazgos_principales": "Anomalías o características a reparar. Cada hallazgo distinto separado por un punto.",
+            "trabajos_recomendados": "Trabajos a realizar. Cada trabajo distinto separado por un punto.",
+            "resultado": "Conclusiones finales a partir de todo lo antes mencionado"
+        };
+
+        // Campos que se muestran como <select> y sus opciones.
+        const CAMPOS_SELECT = {
+            "tipo_equipo": ["Ascensor", "Montacargas", "Plataforma"],
+            "tipo": ["Tracción", "Hidráulico"],
+            "estado_general": ["Adecuado", "Regular", "Deficiente", "Crítico"],
+            "tipo_propuesta": ["Mantenimiento", "Correctivo", "Modernización"]
         };
 
         // Estado Global de la Aplicación
@@ -415,7 +716,7 @@
         let mediaRecorder;
         let audioChunks = [];
         let isRecording = false;
-        
+
         let selectedPhotos = [];
         let photoEditingId = null;
 
@@ -434,7 +735,7 @@
             const dniInput = document.getElementById('login-dni').value.trim();
             const statusDiv = document.getElementById('login-status');
 
-            if(!nameInput || !dniInput) {
+            if (!nameInput || !dniInput) {
                 statusDiv.textContent = "Por favor complete todos los campos.";
                 statusDiv.style.color = "var(--chg-red)";
                 return;
@@ -456,10 +757,10 @@
 
                 const tareas = await response.json();
 
-                if(Array.isArray(tareas) && tareas.length > 0) {
+                if (Array.isArray(tareas) && tareas.length > 0) {
                     sessionData.name = tareas[0].property_ingeniero || nombre;
                     sessionData.dni = dni;
-                    
+
                     viewLogin.classList.add('hidden');
                     viewDashboard.classList.remove('hidden');
                     document.getElementById('welcome-message').textContent = `Bienvenido Ing. ${sessionData.name}`;
@@ -467,13 +768,13 @@
                     await cargarBorradores(dni); // trae los borradores antes de pintar las tarjetas
                     renderizarTarjetas(tareas);
                 } else {
-                    if(elementoStatus) {
+                    if (elementoStatus) {
                         elementoStatus.textContent = "DNI no encontrado o no tienes tareas pendientes asignadas hoy.";
                         elementoStatus.style.color = "var(--chg-red)";
                     }
                 }
             } catch (err) {
-                if(elementoStatus) {
+                if (elementoStatus) {
                     elementoStatus.textContent = "Error de comunicación con el servidor central n8n.";
                     elementoStatus.style.color = "var(--chg-red)";
                 }
@@ -486,7 +787,7 @@
             const tareasReales = tareas.filter(tarea => tarea.id !== undefined && tarea.id !== null);
             listaTareasGlobal = tareasReales;
 
-            if(tareasReales.length === 0) {
+            if (tareasReales.length === 0) {
                 container.innerHTML = `
                     <div style="text-align: center; padding: 40px 20px; border: 2px dashed var(--chg-light-blue); border-radius: 8px; background: #f8fafc; margin-top: 10px;">
                         <h3 style="color: var(--chg-blue); margin-bottom: 10px;">¡Completaste todas tus tareas! 🎉</h3>
@@ -499,13 +800,13 @@
             tareasReales.forEach(tarea => {
                 const idTarea = tarea.id;
                 const nCotizacion = tarea.property_n_cot || "S/N";
-                const edificio = tarea.property_edificio_cond || "No especificado"; 
+                const edificio = tarea.property_edificio_cond || "No especificado";
                 const direccionRaw = tarea.property_direccion_texto || "No especificada";
                 const direccion = direccionRaw.replace(/@/g, '');
                 const encargado = tarea.property_encargado || "No especificado";
                 const telefono = tarea.property_tel_fono || "No registrado";
                 const observacion = tarea.property_observaci_n || "Sin observaciones específicas.";
-                
+
                 let fechaFormateada = "No especificada";
                 if (tarea.property_fecha_de_atencion && tarea.property_fecha_de_atencion.start) {
                     fechaFormateada = tarea.property_fecha_de_atencion.start;
@@ -537,10 +838,10 @@
                     <button class="btn btn-blue" style="margin-top:15px;" onclick="iniciarEvaluacionTask('${idTarea}')">
                         Iniciar Evaluación por Voz
                     </button>
-                    ${ borradores[idTarea] ? `
+                    ${borradores[idTarea] ? `
                     <button class="btn btn-secondary" style="margin-top:10px; margin-bottom:0;" onclick="continuarFormulario('${idTarea}')">
                         Continuar formulario
-                    </button>` : '' }
+                    </button>` : ''}
                 `;
                 container.appendChild(card);
             });
@@ -581,14 +882,33 @@
             }
         }
 
-        // Reúne los valores actuales del formulario en un objeto clave->valor
+        // Reúne los valores actuales del formulario en la estructura anidada del informe:
+        // { equipos:[{...}], generales:{...}, cotizaciones:[...] }
         function recolectarValoresFormulario() {
-            const data = {};
-            formContainer.querySelectorAll('.form-control').forEach(input => {
-                const key = input.id.replace('input_', '');
-                data[key] = input.value;
+            const equipos = [];
+            document.querySelectorAll('#equiposContainer .equipo-card').forEach(card => {
+                const eq = {};
+                card.querySelectorAll('.form-control').forEach(input => {
+                    if (input.dataset.key) eq[input.dataset.key] = input.value;
+                });
+                equipos.push(eq);
             });
-            return data;
+
+            const generales = {};
+            const gc = document.getElementById('generalesContainer');
+            if (gc) {
+                gc.querySelectorAll('.form-control').forEach(input => {
+                    if (input.dataset.key) generales[input.dataset.key] = input.value;
+                });
+            }
+
+            const cotizaciones = [];
+            document.querySelectorAll('#cotizacionesContainer .cotizacion-input').forEach(input => {
+                const v = input.value.trim();
+                if (v) cotizaciones.push(v);
+            });
+
+            return { equipos, generales, cotizaciones };
         }
 
         // Guarda (upsert) el borrador de la tarea activa en Supabase
@@ -647,12 +967,12 @@
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.add('hidden');
             document.getElementById('view-dashboard').classList.remove('hidden');
-    
-            activeTaskId = ""; 
+
+            activeTaskId = "";
             status1.textContent = "Esperando...";
             status2.textContent = "";
-            
-            if(document.getElementById('pauseBtn')) {
+
+            if (document.getElementById('pauseBtn')) {
                 document.getElementById('pauseBtn').classList.add('hidden');
             }
 
@@ -694,24 +1014,24 @@
 
                     mediaRecorder.start();
                     isRecording = true;
-                    
+
                     recordBtn.textContent = "⏹ Detener Grabación";
                     recordBtn.classList.add('recording');
                     status1.textContent = "Grabando reporte...";
-                    
+
                     pauseBtn.classList.remove('hidden');
                     pauseBtn.textContent = "⏸ Pausar";
                     pauseBtn.style.backgroundColor = "transparent";
                     pauseBtn.style.color = "var(--chg-blue)";
                     pauseBtn.style.border = "2px solid var(--chg-blue)";
-                    
+
                 } catch (err) {
                     alert("Error al acceder al micrófono: " + err);
                 }
             } else {
                 mediaRecorder.stop();
                 isRecording = false;
-                
+
                 recordBtn.textContent = "🔴 Iniciar Grabación";
                 recordBtn.classList.remove('recording');
                 status1.textContent = "Procesando audio con IA... Por favor espera.";
@@ -723,22 +1043,22 @@
         pauseBtn.addEventListener('click', () => {
             if (mediaRecorder && mediaRecorder.state === 'recording') {
                 mediaRecorder.pause();
-                
+
                 pauseBtn.textContent = "▶ Reanudar";
-                pauseBtn.style.backgroundColor = "#f39c12"; 
+                pauseBtn.style.backgroundColor = "#f39c12";
                 pauseBtn.style.color = "white";
                 pauseBtn.style.border = "2px solid #f39c12"
-                recordBtn.classList.remove('recording'); 
+                recordBtn.classList.remove('recording');
                 status1.textContent = "Grabación en pausa...";
-                
+
             } else if (mediaRecorder && mediaRecorder.state === 'paused') {
                 mediaRecorder.resume();
-                
+
                 pauseBtn.textContent = "⏸ Pausar";
                 pauseBtn.style.backgroundColor = "transparent";
                 pauseBtn.style.color = "var(--chg-blue)";
                 pauseBtn.style.border = "2px solid var(--chg-blue)"
-                recordBtn.classList.add('recording'); 
+                recordBtn.classList.add('recording');
                 status1.textContent = "Grabando reporte...";
             }
         });
@@ -755,7 +1075,7 @@
                     method: 'POST',
                     body: formData
                 });
-                
+
                 const jsonResult = await response.json();
                 step1.classList.add('hidden');
                 step2.classList.remove('hidden');
@@ -781,87 +1101,251 @@
                 .join('\n');
         }
 
+        // Toma solo los campos de equipo de un objeto (rellenando faltantes con "").
+        function tomarCamposEquipo(obj) {
+            const e = {};
+            Object.keys(CAMPOS_EQUIPO).forEach(k => {
+                e[k] = (obj && obj[k] != null) ? obj[k].toString() : '';
+            });
+            return e;
+        }
+
+        // Normaliza cualquier entrada (formato nuevo anidado o formato plano antiguo)
+        // a la estructura interna { equipos:[...], generales:{...}, cotizaciones:[...] }.
+        function normalizarDatos(datosJson) {
+            if (!datosJson || typeof datosJson !== 'object') datosJson = {};
+
+            let equipos = [];
+            if (Array.isArray(datosJson.equipos)) {
+                equipos = datosJson.equipos.map(tomarCamposEquipo);
+            } else {
+                // Formato antiguo: los campos del equipo vienen sueltos en la raíz.
+                const eq = tomarCamposEquipo(datosJson);
+                if (Object.values(eq).some(v => v !== '')) equipos.push(eq);
+            }
+            if (equipos.length === 0) equipos.push(tomarCamposEquipo({})); // siempre al menos un equipo
+
+            const generales = {};
+            Object.keys(CAMPOS_GENERALES).forEach(k => {
+                generales[k] = (datosJson[k] != null) ? datosJson[k] : '';
+            });
+
+            let cotizaciones = [];
+            if (Array.isArray(datosJson.cotizaciones)) {
+                cotizaciones = datosJson.cotizaciones
+                    .filter(c => c != null)
+                    .map(c => c.toString());
+            }
+
+            return { equipos, generales, cotizaciones };
+        }
+
+        // Crea un .form-group (label + descripción + input/select/textarea) para un campo.
+        // El input lleva dataset.key para poder leerlo luego sin depender de un id único.
+        function crearCampoFormulario(key, valor, textoDescripcion, yaFormateado) {
+            const valorDiv = document.createElement('div');
+            valorDiv.className = 'form-group';
+
+            const label = document.createElement('label');
+            label.className = 'form-label';
+            label.textContent = key.replace(/_/g, ' ');
+
+            const descripcion = document.createElement('span');
+            descripcion.className = 'form-description';
+            descripcion.textContent = textoDescripcion || "Información extraída del reporte.";
+
+            let input;
+            if (CAMPOS_SELECT[key]) {
+                input = document.createElement('select');
+                const opciones = CAMPOS_SELECT[key];
+
+                const opDefault = document.createElement('option');
+                opDefault.value = "";
+                opDefault.textContent = "-- Seleccione una opción --";
+                input.appendChild(opDefault);
+
+                let coincidenciaEncontrada = false;
+                const valorIA = (valor || "").toString().trim();
+
+                opciones.forEach(op => {
+                    const option = document.createElement('option');
+                    option.value = op;
+                    option.textContent = op;
+                    if (valorIA.toLowerCase() === op.toLowerCase()) {
+                        option.selected = true;
+                        coincidenciaEncontrada = true;
+                    }
+                    input.appendChild(option);
+                });
+
+                if (valorIA && !coincidenciaEncontrada) {
+                    const opEspecial = document.createElement('option');
+                    opEspecial.value = valorIA;
+                    opEspecial.textContent = valorIA;
+                    opEspecial.selected = true;
+                    input.appendChild(opEspecial);
+                }
+            } else if (key === 'hallazgos_principales' || key === 'trabajos_recomendados') {
+                input = document.createElement('textarea');
+                input.value = yaFormateado ? (valor || '') : formatearComoLista(valor);
+                input.rows = Math.max(4, input.value.split('\n').length + 1);
+            } else if (key === 'resultado') {
+                input = document.createElement('textarea');
+                input.value = valor || '';
+            } else {
+                input = document.createElement('input');
+                input.type = 'text';
+                input.value = valor || '';
+            }
+
+            input.className = 'form-control';
+            input.dataset.key = key;
+
+            valorDiv.appendChild(label);
+            valorDiv.appendChild(descripcion);
+            valorDiv.appendChild(input);
+            return valorDiv;
+        }
+
+        // Muestra la cabecera (con el botón de quitar) solo cuando hay 2 o más equipos.
+        function renumerarEquipos() {
+            const cards = document.querySelectorAll('#equiposContainer .equipo-card');
+            cards.forEach(card => {
+                const header = card.querySelector('.equipo-header');
+                if (header) header.style.display = cards.length > 1 ? 'flex' : 'none';
+            });
+        }
+
+        // Agrega un bloque (card) de equipo con sus 8 campos.
+        function agregarBloqueEquipo(datosEquipo, yaFormateado = false) {
+            const equiposContainer = document.getElementById('equiposContainer');
+            if (!equiposContainer) return;
+
+            const card = document.createElement('div');
+            card.className = 'equipo-card';
+
+            const header = document.createElement('div');
+            header.className = 'equipo-header';
+
+            const btnRemove = document.createElement('button');
+            btnRemove.type = 'button';
+            btnRemove.className = 'btn-remove-equipo';
+            btnRemove.textContent = '🗑 Quitar equipo';
+            btnRemove.onclick = () => {
+                card.remove();
+                renumerarEquipos();
+                guardarBorradorDebounced();
+            };
+
+            header.appendChild(btnRemove);
+            card.appendChild(header);
+
+            Object.keys(CAMPOS_EQUIPO).forEach(key => {
+                card.appendChild(
+                    crearCampoFormulario(key, datosEquipo[key] || '', CAMPOS_EQUIPO[key], yaFormateado)
+                );
+            });
+
+            equiposContainer.appendChild(card);
+            renumerarEquipos();
+        }
+
+        // Agrega una fila de cotización (texto libre; no se rellena por audio).
+        function agregarCotizacion(valor = '') {
+            const cont = document.getElementById('cotizacionesContainer');
+            if (!cont) return;
+
+            const row = document.createElement('div');
+            row.className = 'cotizacion-row';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control cotizacion-input';
+            input.placeholder = 'Detalle de la cotización...';
+            input.value = valor;
+
+            const btnRemove = document.createElement('button');
+            btnRemove.type = 'button';
+            btnRemove.className = 'btn-remove-cot';
+            btnRemove.textContent = '×';
+            btnRemove.onclick = () => {
+                row.remove();
+                guardarBorradorDebounced();
+            };
+
+            row.appendChild(input);
+            row.appendChild(btnRemove);
+            cont.appendChild(row);
+        }
+
         // Formulario dinámico. yaFormateado = true cuando los textos vienen de un borrador
         // (ya tienen guiones) y no deben volver a pasar por formatearComoLista.
         function generarFormulario(datosJson, yaFormateado = false) {
+            const datos = normalizarDatos(datosJson);
             formContainer.innerHTML = '';
-            // Orden fijo de campos según `descripciones`; cualquier clave extra se anexa al final
-            const ordenCampos = Object.keys(descripciones);
-            const clavesOrdenadas = [
-                ...ordenCampos.filter(k => Object.prototype.hasOwnProperty.call(datosJson, k)),
-                ...Object.keys(datosJson).filter(k => !ordenCampos.includes(k))
-            ];
-            for (const key of clavesOrdenadas) {
-                if (datosJson.hasOwnProperty(key)) {
-                    const valorDiv = document.createElement('div');
-                    valorDiv.className = 'form-group';
-                    
-                    const label = document.createElement('label');
-                    label.className = 'form-label';
-                    label.textContent = key.replace(/_/g, ' '); 
-                    
-                    const descripcion = document.createElement('span');
-                    descripcion.className = 'form-description';
-                    descripcion.textContent = descripciones[key] || "Información extraída del reporte.";
-                    
-                    let input;
-                    if (key === 'tipo_equipo' || key === 'tipo' || key === 'estado_general' || key === 'tipo_propuesta') {
-                        input = document.createElement('select');
-                        
-                        let opciones = [];
-                        if (key === 'tipo_equipo') opciones = ["Ascensor", "Montacargas", "Plataforma"];
-                        if (key === 'tipo') opciones = ["Tracción", "Hidráulico"];
-                        if (key === 'estado_general') opciones = ["Optimo", "Regular", "Deficiente", "Crítico"];
-                        if (key === 'tipo_propuesta') opciones = ["Mantenimiento", "Correctivo", "Modernización"];
-                        
-                        const opDefault = document.createElement('option');
-                        opDefault.value = "";
-                        opDefault.textContent = "-- Seleccione una opción --";
-                        input.appendChild(opDefault);
 
-                        let coincidenciaEncontrada = false;
-                        const valorIA = (datosJson[key] || "").toString().trim();
+            // --- Sección: EQUIPOS (repetibles) ---
+            const equiposContainer = document.createElement('div');
+            equiposContainer.id = 'equiposContainer';
+            formContainer.appendChild(equiposContainer);
 
-                        opciones.forEach(op => {
-                            const option = document.createElement('option');
-                            option.value = op;
-                            option.textContent = op;
-                            if (valorIA.toLowerCase() === op.toLowerCase()) {
-                                option.selected = true;
-                                coincidenciaEncontrada = true;
-                            }
-                            input.appendChild(option);
-                        });
-                        
-                        if (valorIA && !coincidenciaEncontrada) {
-                            const opEspecial = document.createElement('option');
-                            opEspecial.value = valorIA;
-                            opEspecial.textContent = `${valorIA}`;
-                            opEspecial.selected = true;
-                            input.appendChild(opEspecial);
-                        }
-                    } else if (key === 'hallazgos_principales' || key === 'trabajos_recomendados') {
-                        input = document.createElement('textarea');
-                        input.value = yaFormateado ? (datosJson[key] || '') : formatearComoLista(datosJson[key]);
-                        input.rows = Math.max(4, input.value.split('\n').length + 1);
-                    } else if (key === 'resultado') {
-                        input = document.createElement('textarea');
-                        input.value = datosJson[key];
-                    } else {
-                        input = document.createElement('input');
-                        input.type = 'text';
-                        input.value = datosJson[key];
-                    }
-                    
-                    input.className = 'form-control';
-                    input.id = `input_${key}`;
-                    
-                    valorDiv.appendChild(label);
-                    valorDiv.appendChild(descripcion);
-                    valorDiv.appendChild(input);
-                    formContainer.appendChild(valorDiv);
-                }
-            }
+            const btnAddEquipo = document.createElement('button');
+            btnAddEquipo.type = 'button';
+            btnAddEquipo.className = 'btn btn-secondary';
+            btnAddEquipo.style.marginTop = '5px';
+            btnAddEquipo.textContent = '➕ Agregar otro equipo';
+            btnAddEquipo.onclick = () => {
+                agregarBloqueEquipo(tomarCamposEquipo({}), false);
+                guardarBorradorDebounced();
+            };
+            formContainer.appendChild(btnAddEquipo);
+
+            datos.equipos.forEach(eq => agregarBloqueEquipo(eq, yaFormateado));
+
+            // --- Sección: CAMPOS GENERALES ---
+            const generalesContainer = document.createElement('div');
+            generalesContainer.id = 'generalesContainer';
+            generalesContainer.style.marginTop = '20px';
+            Object.keys(CAMPOS_GENERALES).forEach(key => {
+                generalesContainer.appendChild(
+                    crearCampoFormulario(key, datos.generales[key] || '', CAMPOS_GENERALES[key], yaFormateado)
+                );
+            });
+            formContainer.appendChild(generalesContainer);
+
+            // --- Sección: COTIZACIONES (lista manual) ---
+            const cotZone = document.createElement('div');
+            cotZone.className = 'form-group';
+            cotZone.style.marginTop = '10px';
+
+            const cotLabel = document.createElement('label');
+            cotLabel.className = 'form-label';
+            cotLabel.textContent = '💲 Cotizaciones';
+
+            const cotDesc = document.createElement('span');
+            cotDesc.className = 'form-description';
+            cotDesc.textContent = 'Agregue manualmente las cotizaciones asociadas al informe (no se generan por voz).';
+
+            const cotContainer = document.createElement('div');
+            cotContainer.id = 'cotizacionesContainer';
+
+            const btnAddCot = document.createElement('button');
+            btnAddCot.type = 'button';
+            btnAddCot.className = 'btn btn-secondary';
+            btnAddCot.style.marginTop = '5px';
+            btnAddCot.textContent = '➕ Agregar cotización';
+            btnAddCot.onclick = () => {
+                agregarCotizacion('');
+                guardarBorradorDebounced();
+            };
+
+            cotZone.appendChild(cotLabel);
+            cotZone.appendChild(cotDesc);
+            cotZone.appendChild(cotContainer);
+            cotZone.appendChild(btnAddCot);
+            formContainer.appendChild(cotZone);
+
+            datos.cotizaciones.forEach(c => agregarCotizacion(c));
         }
 
         // --- CONTROLADORES DE EVIDENCIA FOTOGRÁFICA ---
@@ -869,20 +1353,20 @@
 
         fileInput.addEventListener('change', (e) => {
             const files = Array.from(e.target.files);
-            
+
             files.forEach(file => {
                 const photoId = 'photo_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
                 selectedPhotos.push({ id: photoId, file: file });
-                
+
                 const card = document.createElement('div');
                 card.className = 'photo-card';
                 card.id = `card_${photoId}`;
-                
+
                 const img = document.createElement('img');
                 img.src = URL.createObjectURL(file);
                 img.className = 'photo-thumb';
                 img.id = `img_${photoId}`;
-                
+
                 const descBlock = document.createElement('div');
                 descBlock.className = 'desc-block';
 
@@ -929,7 +1413,7 @@
                 const btnRemove = document.createElement('button');
                 btnRemove.className = 'btn-remove';
                 btnRemove.innerHTML = '×';
-                btnRemove.onclick = function() {
+                btnRemove.onclick = function () {
                     detenerRecorderFoto(photoId);
                     card.remove();
                     selectedPhotos = selectedPhotos.filter(p => p.id !== photoId);
@@ -941,7 +1425,7 @@
                 card.appendChild(btnRemove);
                 photoPreviews.appendChild(card);
             });
-            
+
             fileInput.value = '';
         });
 
@@ -1088,7 +1572,7 @@
             if (!estado || !estado.recorder) return;
             estado.recorder.onstop = null; // evita disparar la transcripción
             if (estado.recorder.state !== 'inactive') {
-                try { estado.recorder.stop(); } catch (e) {}
+                try { estado.recorder.stop(); } catch (e) { }
             }
             liberarRecorderFoto(photoId);
         }
@@ -1112,18 +1596,18 @@
         const btnDeshacer = document.getElementById('btnDeshacer');
 
         let dibujando = false;
-        let imagenBase = new Image(); 
-        
+        let imagenBase = new Image();
+
         // Estados y Memoria
-        let herramientaActual = 'freehand'; 
+        let herramientaActual = 'freehand';
         let inicioX = 0;
         let inicioY = 0;
         let historial = [];
 
         function configurarLapiz(contexto) {
-            contexto.strokeStyle = "#FF0000"; 
-            contexto.lineWidth = 4 * (canvas.width / 400); 
-            contexto.lineCap = "round"; 
+            contexto.strokeStyle = "#FF0000";
+            contexto.lineWidth = 4 * (canvas.width / 400);
+            contexto.lineCap = "round";
             contexto.lineJoin = "round";
         }
 
@@ -1145,8 +1629,8 @@
 
         btnDeshacer.addEventListener('click', () => {
             if (historial.length > 1) {
-                historial.pop(); 
-                ctx.putImageData(historial[historial.length - 1], 0, 0); 
+                historial.pop();
+                ctx.putImageData(historial[historial.length - 1], 0, 0);
                 btnDeshacer.disabled = historial.length <= 1;
             }
         });
@@ -1157,13 +1641,13 @@
             if (!photoObj) return;
 
             imagenBase.src = URL.createObjectURL(photoObj.file);
-            
+
             imagenBase.onload = () => {
                 drawModal.classList.remove('hidden');
-                
+
                 const MAX_RESOLUCION = 800;
                 const proporcion = imagenBase.height / imagenBase.width;
-                
+
                 if (imagenBase.width > MAX_RESOLUCION) {
                     canvas.width = MAX_RESOLUCION;
                     canvas.height = MAX_RESOLUCION * proporcion;
@@ -1190,7 +1674,7 @@
         function redibujarFondo() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(imagenBase, 0, 0, canvas.width, canvas.height);
-            historial = []; 
+            historial = [];
             guardarEstado();
         }
 
@@ -1198,7 +1682,7 @@
             const rect = canvas.getBoundingClientRect();
             let clienteX = e.clientX;
             let clienteY = e.clientY;
-            
+
             if (e.touches && e.touches.length > 0) {
                 clienteX = e.touches[0].clientX;
                 clienteY = e.touches[0].clientY;
@@ -1214,7 +1698,7 @@
         }
 
         function iniciarDibujo(e) {
-            if (e.button === 2) return; 
+            if (e.button === 2) return;
             e.preventDefault();
             dibujando = true;
             const pos = obtenerPosicion(e);
@@ -1237,10 +1721,10 @@
                 ctx.stroke();
             } else {
                 ctxPreview.clearRect(0, 0, canvasPreview.width, canvasPreview.height);
-                
+
                 if (herramientaActual === 'rect') {
                     ctxPreview.strokeRect(inicioX, inicioY, pos.x - inicioX, pos.y - inicioY);
-                } 
+                }
                 else if (herramientaActual === 'circle') {
                     const radio = Math.sqrt(Math.pow(pos.x - inicioX, 2) + Math.pow(pos.y - inicioY, 2));
                     ctxPreview.beginPath();
@@ -1256,10 +1740,10 @@
         function detenerDibujo(e) {
             if (!dibujando) return;
             dibujando = false;
-            
+
             if (herramientaActual !== 'freehand') {
-                const pos = obtenerPosicion(e); 
-                
+                const pos = obtenerPosicion(e);
+
                 if (herramientaActual === 'rect') {
                     ctx.strokeRect(inicioX, inicioY, pos.x - inicioX, pos.y - inicioY);
                 }
@@ -1278,9 +1762,9 @@
         }
 
         function dibujarFlecha(contexto, desdeX, desdeY, hastaX, hastaY) {
-            const tamanoCabeza = 15 * (canvas.width / 400); 
+            const tamanoCabeza = 15 * (canvas.width / 400);
             const angulo = Math.atan2(hastaY - desdeY, hastaX - desdeX);
-            
+
             contexto.beginPath();
             contexto.moveTo(desdeX, desdeY);
             contexto.lineTo(hastaX, hastaY);
@@ -1292,15 +1776,15 @@
 
         // Eventos Dibujo
         canvas.addEventListener('mousedown', iniciarDibujo);
-        window.addEventListener('mousemove', dibujar); 
+        window.addEventListener('mousemove', dibujar);
         window.addEventListener('mouseup', detenerDibujo);
-        canvas.addEventListener('touchstart', iniciarDibujo, {passive: false});
-        window.addEventListener('touchmove', dibujar, {passive: false});
+        canvas.addEventListener('touchstart', iniciarDibujo, { passive: false });
+        window.addEventListener('touchmove', dibujar, { passive: false });
         window.addEventListener('touchend', detenerDibujo);
 
         // Controles Modal
         document.getElementById('btnLimpiarCanvas').addEventListener('click', () => {
-            if(imagenBase.src) redibujarFondo();
+            if (imagenBase.src) redibujarFondo();
         });
 
         document.getElementById('btnCerrarModal').addEventListener('click', () => {
@@ -1312,12 +1796,12 @@
             canvas.toBlob((blob) => {
                 const nuevoArchivo = new File([blob], `evidencia_${Date.now()}.jpg`, { type: "image/jpeg" });
                 const photoObj = selectedPhotos.find(p => p.id === photoEditingId);
-                
+
                 if (photoObj) {
                     photoObj.file = nuevoArchivo;
                     document.getElementById(`img_${photoEditingId}`).src = URL.createObjectURL(nuevoArchivo);
                 }
-                
+
                 drawModal.classList.add('hidden');
                 photoEditingId = null;
             }, 'image/jpeg', 0.9);
@@ -1328,31 +1812,38 @@
             status2.textContent = "Enviando datos, subiendo fotos y compilando PDF corporativo...";
             sendBtn.disabled = true;
 
-            const validatedData = {};
-            const inputs = formContainer.querySelectorAll('.form-control');
-            inputs.forEach(input => {
-                const key = input.id.replace('input_', '');
-                validatedData[key] = input.value;
-            });
+            const datos = recolectarValoresFormulario();
 
-            validatedData["encargado"] = tareaActivaCompleta.property_encargado || "No especificado";
+            const validatedData = {
+                // Datos técnicos: uno o varios equipos
+                equipos: datos.equipos,
+                // Campos generales del informe
+                ...datos.generales,
+                // Lista de cotizaciones (ingresadas manualmente)
+                cotizaciones: datos.cotizaciones
+            };
+
+            // Metadata del ingeniero / envío
             validatedData["dni_ingeniero"] = sessionData.dni;
             validatedData["nombre_ingeniero"] = sessionData.name;
             validatedData["fecha_envio"] = new Date().toISOString();
 
-
+            // Metadata de la tarea (Notion)
             if (tareaActivaCompleta) {
                 validatedData["n_cotizacion"] = tareaActivaCompleta.property_n_cot || "S/N";
                 validatedData["edificio"] = tareaActivaCompleta.name || tareaActivaCompleta.property_edificio_cond || "No especificado";
-                
+
                 const direccionRaw = tareaActivaCompleta.property_direccion_texto || "No especificada";
                 validatedData["direccion"] = direccionRaw.replace(/@/g, '');
-                
+
                 validatedData["encargado"] = tareaActivaCompleta.property_encargado || "No especificado";
                 validatedData["telefono"] = tareaActivaCompleta.property_tel_fono || "No registrado";
                 validatedData["observacion"] = tareaActivaCompleta.property_observaci_n || "Sin observaciones específicas.";
+            } else {
+                validatedData["encargado"] = "No especificado";
             }
 
+            validatedData["cantidad_equipos_reportados"] = datos.equipos.length;
             validatedData["cantidad_fotos"] = selectedPhotos.length;
 
             const formData = new FormData();
@@ -1363,10 +1854,10 @@
             selectedPhotos.forEach((photoObj, index) => {
                 const descElement = document.getElementById(`desc_${photoObj.id}`);
                 const descText = descElement ? descElement.value : '';
-                
+
                 // Envía el archivo original o el editado por el canvas
-                formData.append(`foto_${index}`, photoObj.file); 
-                formData.append(`desc_${index}`, descText); 
+                formData.append(`foto_${index}`, photoObj.file);
+                formData.append(`desc_${index}`, descText);
             });
 
             try {
@@ -1390,9 +1881,9 @@
                 setTimeout(async () => {
                     step2.classList.add('hidden');
                     viewDashboard.classList.remove('hidden');
-                    
+
                     await realizarConsumoPortal(sessionData.name, sessionData.dni, null);
-                    
+
                     status2.innerHTML = "";
                     sendBtn.disabled = false;
                 }, 3000);
@@ -1405,4 +1896,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -217,19 +217,19 @@
             background: #921720;
         }
 
-        /* Lista de Cotizaciones */
-        .cotizacion-row {
+        /* Lista de Correctivos */
+        .correctivo-row {
             display: flex;
             gap: 10px;
             align-items: center;
             margin-bottom: 10px;
         }
 
-        .cotizacion-row .form-control {
+        .correctivo-row .form-control {
             flex-grow: 1;
         }
 
-        .btn-remove-cot {
+        .btn-remove-corr {
             background: var(--chg-red);
             color: white;
             border: none;
@@ -241,7 +241,7 @@
             font-weight: bold;
         }
 
-        .btn-remove-cot:hover {
+        .btn-remove-corr:hover {
             background: #921720;
         }
 
@@ -878,7 +878,7 @@
         }
 
         // Reúne los valores actuales del formulario en la estructura anidada del informe:
-        // { equipos:[{...}], generales:{...}, cotizaciones:[...] }
+        // { equipos:[{...}], generales:{...}, correctivos:[...] }
         function recolectarValoresFormulario() {
             const equipos = [];
             document.querySelectorAll('#equiposContainer .equipo-card').forEach(card => {
@@ -897,13 +897,13 @@
                 });
             }
 
-            const cotizaciones = [];
-            document.querySelectorAll('#cotizacionesContainer .cotizacion-input').forEach(input => {
+            const correctivos = [];
+            document.querySelectorAll('#correctivosContainer .correctivo-input').forEach(input => {
                 const v = input.value.trim();
-                if (v) cotizaciones.push(v);
+                if (v) correctivos.push(v);
             });
 
-            return { equipos, generales, cotizaciones };
+            return { equipos, generales, correctivos };
         }
 
         // Guarda (upsert) el borrador de la tarea activa en Supabase
@@ -1106,7 +1106,7 @@
         }
 
         // Normaliza cualquier entrada (formato nuevo anidado o formato plano antiguo)
-        // a la estructura interna { equipos:[...], generales:{...}, cotizaciones:[...] }.
+        // a la estructura interna { equipos:[...], generales:{...}, correctivos:[...] }.
         function normalizarDatos(datosJson) {
             if (!datosJson || typeof datosJson !== 'object') datosJson = {};
 
@@ -1125,14 +1125,14 @@
                 generales[k] = (datosJson[k] != null) ? datosJson[k] : '';
             });
 
-            let cotizaciones = [];
-            if (Array.isArray(datosJson.cotizaciones)) {
-                cotizaciones = datosJson.cotizaciones
+            let correctivos = [];
+            if (Array.isArray(datosJson.correctivos)) {
+                correctivos = datosJson.correctivos
                     .filter(c => c != null)
                     .map(c => c.toString());
             }
 
-            return { equipos, generales, cotizaciones };
+            return { equipos, generales, correctivos };
         }
 
         // Crea un .form-group (label + descripción + input/select/textarea) para un campo.
@@ -1245,23 +1245,23 @@
             renumerarEquipos();
         }
 
-        // Agrega una fila de cotización (texto libre; no se rellena por audio).
-        function agregarCotizacion(valor = '') {
-            const cont = document.getElementById('cotizacionesContainer');
+        // Agrega una fila de correctivo (texto libre; no se rellena por audio).
+        function agregarCorrectivo(valor = '') {
+            const cont = document.getElementById('correctivosContainer');
             if (!cont) return;
 
             const row = document.createElement('div');
-            row.className = 'cotizacion-row';
+            row.className = 'correctivo-row';
 
             const input = document.createElement('input');
             input.type = 'text';
-            input.className = 'form-control cotizacion-input';
-            input.placeholder = 'Detalle de la cotización...';
+            input.className = 'form-control correctivo-input';
+            input.placeholder = 'Detalle del correctivo...';
             input.value = valor;
 
             const btnRemove = document.createElement('button');
             btnRemove.type = 'button';
-            btnRemove.className = 'btn-remove-cot';
+            btnRemove.className = 'btn-remove-corr';
             btnRemove.textContent = '×';
             btnRemove.onclick = () => {
                 row.remove();
@@ -1308,29 +1308,29 @@
             });
             formContainer.appendChild(generalesContainer);
 
-            // --- Sección: COTIZACIONES (lista manual) ---
+            // --- Sección: CORRECTIVOS (lista manual) ---
             const cotZone = document.createElement('div');
             cotZone.className = 'form-group';
             cotZone.style.marginTop = '10px';
 
             const cotLabel = document.createElement('label');
             cotLabel.className = 'form-label';
-            cotLabel.textContent = '💲 Cotizaciones';
+            cotLabel.textContent = '🔧 Correctivos';
 
             const cotDesc = document.createElement('span');
             cotDesc.className = 'form-description';
-            cotDesc.textContent = 'Agregue manualmente las cotizaciones asociadas al informe (no se generan por voz).';
+            cotDesc.textContent = 'Agregue manualmente los correctivos asociados al informe (no se generan por voz).';
 
             const cotContainer = document.createElement('div');
-            cotContainer.id = 'cotizacionesContainer';
+            cotContainer.id = 'correctivosContainer';
 
             const btnAddCot = document.createElement('button');
             btnAddCot.type = 'button';
             btnAddCot.className = 'btn btn-secondary';
             btnAddCot.style.marginTop = '5px';
-            btnAddCot.textContent = '➕ Agregar cotización';
+            btnAddCot.textContent = '➕ Agregar correctivo';
             btnAddCot.onclick = () => {
-                agregarCotizacion('');
+                agregarCorrectivo('');
                 guardarBorradorDebounced();
             };
 
@@ -1340,7 +1340,7 @@
             cotZone.appendChild(btnAddCot);
             formContainer.appendChild(cotZone);
 
-            datos.cotizaciones.forEach(c => agregarCotizacion(c));
+            datos.correctivos.forEach(c => agregarCorrectivo(c));
         }
 
         // --- CONTROLADORES DE EVIDENCIA FOTOGRÁFICA ---
@@ -1814,8 +1814,8 @@
                 equipos: datos.equipos,
                 // Campos generales del informe
                 ...datos.generales,
-                // Lista de cotizaciones (ingresadas manualmente)
-                cotizaciones: datos.cotizaciones
+                // Lista de correctivos (ingresados manualmente)
+                correctivos: datos.correctivos
             };
 
             // Metadata del ingeniero / envío

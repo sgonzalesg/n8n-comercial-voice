@@ -794,7 +794,7 @@
 
             tareasReales.forEach(tarea => {
                 const idTarea = tarea.id;
-                const nCotizacion = tarea.property_n_cot || "S/N";
+                const nCotizacion = tarea.property_n_evaluaci_n || "S/N";
                 const edificio = tarea.property_edificio_cond || "No especificado";
                 const direccionRaw = tarea.property_direccion_texto || "No especificada";
                 const direccion = direccionRaw.replace(/@/g, '');
@@ -959,6 +959,16 @@
         }
 
         function irAtras() {
+            // El autoguardado cubre el texto, no las fotos: al salir se pierden. Antes esto
+            // pasaba en silencio y, como los textos volvían, era fácil no notarlo.
+            if (selectedPhotos.length > 0) {
+                const n = selectedPhotos.length;
+                const aviso = `Tienes ${n} foto${n > 1 ? 's' : ''} sin enviar.\n\n`
+                    + `El texto del formulario se guarda, pero las fotos no: si regresas ahora `
+                    + `tendrás que volver a subirlas.\n\n¿Regresar de todas formas?`;
+                if (!confirm(aviso)) return;
+            }
+
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.add('hidden');
             document.getElementById('view-dashboard').classList.remove('hidden');
@@ -996,6 +1006,15 @@
         // Autoguardado del borrador en cada edición del formulario (texto y selects)
         formContainer.addEventListener('input', guardarBorradorDebounced);
         formContainer.addEventListener('change', guardarBorradorDebounced);
+
+        // Recargar o cerrar la pestaña con fotos cargadas las pierde (el borrador solo
+        // guarda el texto). El navegador muestra su propio dialogo de confirmacion.
+        window.addEventListener('beforeunload', (e) => {
+            if (selectedPhotos.length > 0) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
 
         recordBtn.addEventListener('click', async () => {
             if (!isRecording) {
@@ -1825,7 +1844,9 @@
 
             // Metadata de la tarea (Notion)
             if (tareaActivaCompleta) {
-                validatedData["n_cotizacion"] = tareaActivaCompleta.property_n_cot || "S/N";
+                // Debe leer el mismo campo que la tarjeta (property_n_evaluaci_n): si no,
+                // el inspector ve un numero en pantalla y el PDF sale con otro.
+                validatedData["n_cotizacion"] = tareaActivaCompleta.property_n_evaluaci_n || "S/N";
                 validatedData["edificio"] = tareaActivaCompleta.name || tareaActivaCompleta.property_edificio_cond || "No especificado";
 
                 const direccionRaw = tareaActivaCompleta.property_direccion_texto || "No especificada";
@@ -1861,10 +1882,15 @@
                     body: formData
                 });
 
+                // fetch solo lanza ante errores de red: un 500 llega aquí como respuesta
+                // normal. Sin esta comprobación se daba el envío por bueno y se borraba
+                // el borrador, perdiendo el formulario sin que el informe existiera.
+                if (!response.ok) throw new Error(`El servidor respondió ${response.status}`);
+
                 status2.innerHTML = `¡Informe técnico procesado con éxito! Se ha cerrado la orden de trabajo en Notion.`;
                 status2.style.color = "var(--chg-blue)";
 
-                borrarBorrador(activeTaskId); // el formulario se completó: ya no hace falta el borrador
+                borrarBorrador(activeTaskId); // el informe ya existe: el borrador sobra
 
                 Object.keys(photoRecorders).forEach(id => detenerRecorderFoto(id));
                 photoRecorders = {};
@@ -1884,7 +1910,11 @@
                 }, 3000);
 
             } catch (err) {
-                status2.textContent = "Error al conectar con el servidor central de empaquetado.";
+                // El borrador y las fotos siguen intactos: no se toca nada hasta confirmar
+                // que el informe se generó.
+                status2.innerHTML = "No se pudo generar el informe. Tus datos y tus fotos siguen "
+                    + "aquí: vuelve a pulsar <b>Generar Informe Técnico</b>. Si el error se repite, "
+                    + "avisa antes de salir de la página.";
                 status2.style.color = "var(--chg-red)";
                 sendBtn.disabled = false;
             }
